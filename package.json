@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "build": "tsc",
-    "serve": "node dist/server.ts",
+    "serve": "node dist/server.js",
     "dev": "nodemon src/server.ts"
   },
   "author": "Elisa Developer",
