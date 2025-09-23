@@ -4,7 +4,7 @@ import { User } from "../models/userModel";
 
 const JWT_SECRET = process.env.JWT_SECRET ?? "";
 
-export const requireSignin = async (
+export const Auth = async (
   req: any,
   res: Response,
   next: NextFunction

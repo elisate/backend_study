@@ -1,13 +1,16 @@
 import { createProduct,getAllProducts} from "../controllers/productController";
 import express from "express";
-import { requireSignin } from "../middlewares/authenitacationFunction";
+
 import { checkAdmin } from "../middlewares/authenitacationFunction";
+import { Auth } from "../middlewares/authenitacationFunction";
 import upload from "../utils/multer";
+
+const uploading=upload.single('image');
 
 
 // import upload from "../utils/multer";
 
-const uploading=upload.single('image');
+// const uploading=upload.single('image');
 const productRouter = express();
 
 productRouter.post('/create-product',uploading,createProduct);

@@ -1,23 +1,31 @@
 import { Product } from "../models/productModel";
 import { Request, Response } from "express";
-import cloudinary from "../utils/cloudinaryConfig";
+import cloudinary from "../utils/cloudhandle";
 export const createProduct = async (req: Request, res: Response) => {
     try {
-        const { prodName, prodDesc, prodPrice, prodQty } = req.body;
+        const { prodName, prodDesc, prodPrice, prodQty ,image} = req.body;
 
-        if (!req.file) {
-            return res.status(400).json({ message: "No image uploaded" });
+        // if (!req.file) {
+        //     return res.status(400).json({ message: "No image uploaded" });
+        // }
+        // const result = await cloudinary.uploader.upload(req.file.path, {
+        //     folder: "products", 
+        // });
+        // const imageUrl=result.secure_url
+        if(!req.file){
+            return res.status(400).json({message:"No image uploaded"})
         }
-        const result = await cloudinary.uploader.upload(req.file.path, {
-            folder: "products", 
+        const result=await cloudinary.uploader.upload(req.file.path,{
+            folder:"products"
         });
-        const imageUrl=result.secure_url
+        const imageUrl=result.secure_url;
+        // Create new product
         const newProduct = new Product({
             prodName,
             prodDesc,
             prodPrice,
             prodQty,
-            image:imageUrl
+           image:imageUrl
         });
         const savedProduct = await newProduct.save();
         res.status(201).json({ message: 'Product created successfully', product: savedProduct });
