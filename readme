@@ -1,3 +1,55 @@
-npm install mongodb // instalation for Drivers
+step 1: First Require User To Login And Find The User Id In The Headers
+
+===================================================================
+
+{
+  "message": "User logged in successfully",
+  "existingUser": {
+    "_id": "68d24f2f67cd875cd800a7a1",
+    "email": "yva@gmail.com",
+    "password": "$2b$10$NAcvkjgDFfsKQUeH0hNv/eOkbiZhbbRVPJkw5/vD/GSX3ZgBg.65q",
+    "userRole": "general_user",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGQyNGYyZjY3Y2Q4NzVjZDgwMGE3YTEiLCJlbWFpbCI6Inl2YUBnbWFpbC5jb20iLCJyb2xlIjoiZ2VuZXJhbF91c2VyIiwiaWF0IjoxNzU4NzQ1NzU5LCJleHAiOjE3NTg3ODE3NTl9.NpazQB5pzX-x6UPREX626FpK5hebIN7IJdG3ZLQPs-I",
+    "createdAt": "2025-09-23T07:41:35.480Z",
+    "updatedAt": "2025-09-24T20:29:19.730Z",
+    "__v": 0
+  }
+}
+
+step2: pass the Token in the Authorization as The Bear Token//http://localhost:5000/api_v1/cart/add-to-cart
+
+==============================================================
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGQyNGYyZjY3Y2Q4NzVjZDgwMGE3YTEiLCJlbWFpbCI6Inl2YUBnbWFpbC5jb20iLCJyb2xlIjoiZ2VuZXJhbF91c2VyIiwiaWF0IjoxNzU4NzQ1NzU5LCJleHAiOjE3NTg3ODE3NTl9.NpazQB5pzX-x6UPREX626FpK5hebIN7IJdG3ZLQPs-I
 
 
+{
+ 
+  "productId": "68d1d3ff562931f2e5003972",
+  "quantity":"2"
+
+}
+
+
+
+results: 
+==============================================
+
+
+{
+  "success": true,
+  "message": "Item added to cart",
+  "data": {
+    "userId": "68d24f2f67cd875cd800a7a1",
+    "items": [
+      {
+        "product": "68d1d3ff562931f2e5003972",
+        "quantity": 2,
+        "_id": "68d455cfcb5e4b50d56d9b57"
+      }
+    ],
+    "_id": "68d455cfcb5e4b50d56d9b56",
+    "createdAt": "2025-09-24T20:34:23.558Z",
+    "updatedAt": "2025-09-24T20:34:23.558Z",
+    "__v": 0
+  }
+}
