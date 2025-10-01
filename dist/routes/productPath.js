@@ -5,8 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const productController_1 = require("../controllers/productController");
 const express_1 = __importDefault(require("express"));
-const authenitacationFunction_1 = require("../middlewares/authenitacationFunction");
-const authenitacationFunction_2 = require("../middlewares/authenitacationFunction");
+const multer_1 = __importDefault(require("../utils/multer"));
+const uploading = multer_1.default.single('image');
+// import upload from "../utils/multer";
+// const uploading=upload.single('image');
 const productRouter = (0, express_1.default)();
-productRouter.post('/create-product', authenitacationFunction_1.requireSignin, authenitacationFunction_2.checkAdmin, productController_1.createProduct);
+productRouter.post('/create-product', uploading, productController_1.createProduct);
+productRouter.get('/get-all-products', productController_1.getAllProducts);
 exports.default = productRouter;

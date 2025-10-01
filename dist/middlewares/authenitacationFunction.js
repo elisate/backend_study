@@ -13,11 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkAdmin = exports.requireSignin = void 0;
+exports.checkAdmin = exports.Auth = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const userModel_1 = require("../models/userModel");
 const JWT_SECRET = (_a = process.env.JWT_SECRET) !== null && _a !== void 0 ? _a : "";
-const requireSignin = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const Auth = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (req.headers.authorization) {
             const token = req.headers.authorization.split(" ")[1];
@@ -40,7 +40,7 @@ const requireSignin = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         return res.status(401).json({ message: "Authorization required" });
     }
 });
-exports.requireSignin = requireSignin;
+exports.Auth = Auth;
 const checkAdmin = (req, res, next) => {
     var _a;
     if (((_a = req.user) === null || _a === void 0 ? void 0 : _a.userRole) !== "admin") {
