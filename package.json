@@ -2,7 +2,7 @@
   "name": "ecomm-project",
   "version": "1.0.0",
   "description": "ecommerce backend ",
-  "main": "distct/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "build": "tsc",
