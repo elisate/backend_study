@@ -2,11 +2,10 @@
   "name": "ecomm-project",
   "version": "1.0.0",
   "description": "ecommerce backend ",
-  "main": "server.ts",
+  "main": "distct/server.js",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "node dist/server.js",
     "build": "tsc",
-    "node": "node dist/server.js",
     "dev": "nodemon src/server.ts"
   },
   "author": "Elisa Developer",
